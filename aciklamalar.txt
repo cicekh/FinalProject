@@ -1,0 +1,3 @@
+Abstractýn içine soyutlarý koyacaðýz. Onlar bizim referans tutucularýmýz olacak.
+
+Bu abstract ile uygulamalar içindeki baðýmlýlýklarý minimize etmemizi saðlayacak. 
