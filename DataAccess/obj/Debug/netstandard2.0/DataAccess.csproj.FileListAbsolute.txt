@@ -1,8 +1,6 @@
 C:\Users\elektr-yay10\source\repos\MyFinalProject\DataAccess\bin\Debug\netstandard2.0\DataAccess.deps.json
 C:\Users\elektr-yay10\source\repos\MyFinalProject\DataAccess\bin\Debug\netstandard2.0\DataAccess.dll
 C:\Users\elektr-yay10\source\repos\MyFinalProject\DataAccess\bin\Debug\netstandard2.0\DataAccess.pdb
-C:\Users\elektr-yay10\source\repos\MyFinalProject\DataAccess\bin\Debug\netstandard2.0\Entities.dll
-C:\Users\elektr-yay10\source\repos\MyFinalProject\DataAccess\bin\Debug\netstandard2.0\Entities.pdb
 C:\Users\elektr-yay10\source\repos\MyFinalProject\DataAccess\obj\Debug\netstandard2.0\DataAccess.csprojAssemblyReference.cache
 C:\Users\elektr-yay10\source\repos\MyFinalProject\DataAccess\obj\Debug\netstandard2.0\DataAccess.AssemblyInfoInputs.cache
 C:\Users\elektr-yay10\source\repos\MyFinalProject\DataAccess\obj\Debug\netstandard2.0\DataAccess.AssemblyInfo.cs
@@ -10,3 +8,7 @@ C:\Users\elektr-yay10\source\repos\MyFinalProject\DataAccess\obj\Debug\netstanda
 C:\Users\elektr-yay10\source\repos\MyFinalProject\DataAccess\obj\Debug\netstandard2.0\DataAccess.dll
 C:\Users\elektr-yay10\source\repos\MyFinalProject\DataAccess\obj\Debug\netstandard2.0\DataAccess.pdb
 C:\Users\elektr-yay10\source\repos\MyFinalProject\DataAccess\obj\Debug\netstandard2.0\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\elektr-yay10\source\repos\MyFinalProject\DataAccess\bin\Debug\netstandard2.0\Core.dll
+C:\Users\elektr-yay10\source\repos\MyFinalProject\DataAccess\bin\Debug\netstandard2.0\Core.pdb
+C:\Users\elektr-yay10\source\repos\MyFinalProject\DataAccess\bin\Debug\netstandard2.0\Entities.dll
+C:\Users\elektr-yay10\source\repos\MyFinalProject\DataAccess\bin\Debug\netstandard2.0\Entities.pdb

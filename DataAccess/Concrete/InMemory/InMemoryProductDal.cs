@@ -35,12 +35,12 @@ namespace DataAccess.Concrete.InMemory
 
         public Product Get(Expression<Func<Product, bool>> filter)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         public List<Product> GetAll()
         {
-            return _products;
+           return _products.ToList();
         }
 
         public List<Product> GetAll(Expression<Func<Product, bool>> filter = null)
