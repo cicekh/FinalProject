@@ -6,7 +6,6 @@ C:\Users\elektr-yay10\source\repos\MyFinalProject\Business\bin\Debug\netstandard
 C:\Users\elektr-yay10\source\repos\MyFinalProject\Business\obj\Debug\netstandard2.0\Business.csprojAssemblyReference.cache
 C:\Users\elektr-yay10\source\repos\MyFinalProject\Business\obj\Debug\netstandard2.0\Business.AssemblyInfoInputs.cache
 C:\Users\elektr-yay10\source\repos\MyFinalProject\Business\obj\Debug\netstandard2.0\Business.AssemblyInfo.cs
-C:\Users\elektr-yay10\source\repos\MyFinalProject\Business\obj\Debug\netstandard2.0\Business.csproj.CoreCompileInputs.cache
 C:\Users\elektr-yay10\source\repos\MyFinalProject\Business\obj\Debug\netstandard2.0\Business.csproj.CopyComplete
 C:\Users\elektr-yay10\source\repos\MyFinalProject\Business\obj\Debug\netstandard2.0\Business.dll
 C:\Users\elektr-yay10\source\repos\MyFinalProject\Business\obj\Debug\netstandard2.0\Business.pdb
@@ -14,3 +13,4 @@ C:\Users\elektr-yay10\source\repos\MyFinalProject\Business\bin\Debug\netstandard
 C:\Users\elektr-yay10\source\repos\MyFinalProject\Business\bin\Debug\netstandard2.0\Core.pdb
 C:\Users\elektr-yay10\source\repos\MyFinalProject\Business\bin\Debug\netstandard2.0\Entities.dll
 C:\Users\elektr-yay10\source\repos\MyFinalProject\Business\bin\Debug\netstandard2.0\Entities.pdb
+C:\Users\elektr-yay10\source\repos\MyFinalProject\Business\obj\Debug\netstandard2.0\Business.csproj.CoreCompileInputs.cache

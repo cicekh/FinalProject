@@ -6,11 +6,6 @@ using System.Text;
 
 namespace Core.DataAccess
 {
-    //generic constraint :generik kısıtlama
-    //class: referans tip olabilir demek
-    //IEntity: IEntity olabilir ya da IEntity implemente eden bir nesne de olabilir.
-
-    // IEntity soyuttur. Ben somut olsun istemiyorum. O nedenle IEntity engel olmak için:new
    public interface IEntityRepository<T> where T:class , IEntity , new()
     {
         List<T> GetAll(Expression<Func<T, bool>> filter = null);
