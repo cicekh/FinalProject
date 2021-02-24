@@ -1,9 +1,11 @@
 ﻿using Business.Abstract;
+using Business.CCS;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
+using Core.Utilities.Bussiness;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
@@ -13,6 +15,7 @@ using Entities.DTOs;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Business.Concrete
@@ -22,38 +25,32 @@ namespace Business.Concrete
         // Bir iş sınıfı başka kesinlikle newlemez.
 
         IProductDal _productDal;
+        ICategoryService _categoryService;
 
-        public ProductManager(IProductDal productDal)
+        //Bir manager kedisini ilgilendiren Dal dışında bir Dal injecte edilemez, Category ile ilgili urum var ise CategoryDal injecte edilmez ICategoryService çağırılır. o injecte edilir.
+
+        public ProductManager(IProductDal productDal, ICategoryService categoryService)
         {
             _productDal = productDal;
+            _categoryService = categoryService;
         }
 
-        [ValidationAspect(typeof(ProductValidator))]
+        [ValidationAspect(typeof(ProductValidator))] // Attribute lara typeof ile tipi atarız. Tipleri Typeof İle atarız. Dikkat instance değil sadece tipi yolluyoruz.
         public IResult Add(Product product)
         {
-            // doğrulama yapıları direkt iş katmanında kullanılmaz uygulanmaz bunun yerine Bussiness katmanında Farklı validasyon kuralları yazılır.
-            //if (product.ProductName.Length < 2)
-            //{
-            //    return new ErrorResult(Messages.ProductNameInvalid);
-            //}
+            IResult result = BussinessRules.Run(CheckIfProductCountOfCategoryCorrect(product.CategoryId), CheckIfProductNameExists(product.ProductName), CheckIfCategoryLimitExceeded());
 
-            // bunlar cross cutting concerns gibi yapılarda tutulur.
-                    ValidationTool.Validate(new ProductValidator(), product);
-            //loglama
-            //cacheRemove
-            //transaction
-            //vs vs. Bir sürü code. Bunlar yerine AOP kullanacağız
-
+            if (result != null)
+            {
+                return result;
+            }
             _productDal.Add(product);
             return new SuccessResult(Messages.ProductAdded);
         }
 
+
         public IDataResult<List<Product>> GetAll()
         {
-            // İş kodları varsa yazıyoruz.
-            // Yetkisi var mı?
-            // Başka kural varsa onlara bak?
-
             if (DateTime.Now.Hour == 21)
             {
                 return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime);
@@ -82,5 +79,43 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<ProductDetailDto>>(_productDal.GetProductDetails(), Messages.ProductsListed);
         }
+
+        [ValidationAspect(typeof(ProductValidator))]
+        public IResult Update(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
+        private IResult CheckIfProductCountOfCategoryCorrect(int categoryId)
+        {
+            var result = _productDal.GetAll(p => p.CategoryId == categoryId).Count;
+            if (result > 10)
+            {
+                return new ErrorResult(Messages.ProductCountOfCategoryError);
+            }
+            return new SuccessResult();
+        }
+
+
+        private IResult CheckIfProductNameExists(string product)
+        {
+            var result = _productDal.GetAll(p => p.ProductName == product).Any();
+            if (result)
+            {
+                return new ErrorResult(Messages.ProductExist);
+            }
+            return new SuccessResult();
+        }
+
+        private IResult CheckIfCategoryLimitExceeded()
+        {
+            var result = _categoryService.GetAll();
+            if (result.Data.Count > 15)
+            {
+                return new ErrorResult(Messages.CategoryLimitExceeded);
+            }
+            return new SuccessResult();
+        }
     }
 }
+
