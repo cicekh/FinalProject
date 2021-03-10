@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BussinessAspects.Autofac;
 using Business.CCS;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
@@ -35,6 +36,7 @@ namespace Business.Concrete
             _categoryService = categoryService;
         }
 
+        [SecuredOperation("product.add,admin")]
         [ValidationAspect(typeof(ProductValidator))] // Attribute lara typeof ile tipi atarız. Tipleri Typeof İle atarız. Dikkat instance değil sadece tipi yolluyoruz.
         public IResult Add(Product product)
         {

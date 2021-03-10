@@ -68,6 +68,7 @@ C:\Users\elektr-yay10\source\repos\MyFinalProject\WebAPI\bin\Debug\netcoreapp3.1
 C:\Users\elektr-yay10\source\repos\MyFinalProject\WebAPI\bin\Debug\netcoreapp3.1\Autofac.Extras.DynamicProxy.dll
 C:\Users\elektr-yay10\source\repos\MyFinalProject\WebAPI\bin\Debug\netcoreapp3.1\Castle.Core.dll
 C:\Users\elektr-yay10\source\repos\MyFinalProject\WebAPI\bin\Debug\netcoreapp3.1\Autofac.Extensions.DependencyInjection.dll
+C:\Users\elektr-yay10\source\repos\MyFinalProject\WebAPI\bin\Debug\netcoreapp3.1\FluentValidation.dll
+C:\Users\elektr-yay10\source\repos\MyFinalProject\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\elektr-yay10\source\repos\MyFinalProject\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.csproj.CoreCompileInputs.cache
 C:\Users\elektr-yay10\source\repos\MyFinalProject\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\elektr-yay10\source\repos\MyFinalProject\WebAPI\bin\Debug\netcoreapp3.1\FluentValidation.dll
