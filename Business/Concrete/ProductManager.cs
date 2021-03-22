@@ -1,10 +1,12 @@
 ﻿using Business.Abstract;
 using Business.BussinessAspects.Autofac;
-using Business.CCS;
+//using Business.CCS;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core;
+using Core.Aspects.Autofac.Log;
 using Core.Aspects.Autofac.Validation;
+using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Bussiness;
 using Core.Utilities.Results;
@@ -36,7 +38,7 @@ namespace Business.Concrete
             _categoryService = categoryService;
         }
 
-        [SecuredOperation("product.add,admin")]
+        //[SecuredOperation("product.add,admin")]
         [ValidationAspect(typeof(ProductValidator))] // Attribute lara typeof ile tipi atarız. Tipleri Typeof İle atarız. Dikkat instance değil sadece tipi yolluyoruz.
         public IResult Add(Product product)
         {
@@ -50,13 +52,13 @@ namespace Business.Concrete
             return new SuccessResult(Messages.ProductAdded);
         }
 
-
+        //[LogAspect(typeof(DatabaseLogger))]
         public IDataResult<List<Product>> GetAll()
         {
-            if (DateTime.Now.Hour == 21)
-            {
-                return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime);
-            }
+            //if (DateTime.Now.Hour == 21)
+            //{
+            //    return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime);
+            //}
 
             return new SuccessDataResult<List<Product>>(_productDal.GetAll(), Messages.ProductsListed);
         }

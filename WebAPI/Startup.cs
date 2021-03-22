@@ -45,6 +45,8 @@ namespace WebAPI
 
             //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
+            services.AddCors();
+
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -68,19 +70,26 @@ namespace WebAPI
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory logger)
         {
+            //var loggingOptions = this.Configuration.GetSection("Log4NetExample").Get<Log4NetProviderOptions>();
+            //logger.AddLog4Net();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.ConfigureCustomExceptionMiddleware();
+
+            app.UseCors(builder=>builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseAuthentication();
-
+            
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

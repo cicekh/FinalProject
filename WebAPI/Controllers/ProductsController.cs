@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Business.Abstract;
 using Business.Concrete;
@@ -29,6 +30,7 @@ namespace WebAPI.Controllers
             // dependency chain
             // IProductService productService = new ProductManager(new EfProductDal());
 
+            Thread.Sleep(1000);
 
             var result = _productService.GetAll();
 
@@ -63,5 +65,19 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpGet("getbycategory")]
+
+        public IActionResult GetByCategoryId(int categoryId)
+        {
+            var result = _productService.GetAllByCategoryId(categoryId);
+
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
     }
 }
